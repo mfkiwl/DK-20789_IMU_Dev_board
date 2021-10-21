@@ -24,7 +24,7 @@
 
 /* InvenSense drivers and utils */
 #include "Invn/Devices/Drivers/Icm207xx/Icm207xx.h"
-#include "Invpres.h"
+//#include "Invpres.h"
 #include "Invn/Devices/SensorTypes.h"
 #include "Invn/Devices/SensorConfig.h"
 #include "Invn/EmbUtils/InvScheduler.h"
@@ -151,21 +151,21 @@ int main (void)
 	/* 
 	* Initialize invpres serif structure 
 	*/
-	struct inv_invpres_serif invpres_serif;
+	//struct inv_invpres_serif invpres_serif;
 
-	invpres_serif.context   = 0; /* no need */
-	invpres_serif.read_reg  = invpres_hal_read_reg;
-	invpres_serif.write_reg = invpres_hal_write_reg;
-	invpres_serif.max_read  = 64; /* maximum number of bytes allowed per serial read */
-	invpres_serif.max_write = 64; /* maximum number of bytes allowed per serial write */
-	invpres_serif.is_spi    = 0;
+	//invpres_serif.context   = 0; /* no need */
+	//invpres_serif.read_reg  = invpres_hal_read_reg;
+	//invpres_serif.write_reg = invpres_hal_write_reg;
+	//invpres_serif.max_read  = 64; /* maximum number of bytes allowed per serial read */
+	//invpres_serif.max_write = 64; /* maximum number of bytes allowed per serial write */
+	//invpres_serif.is_spi    = 0;
 
 	/* 
 	 * Reset invpres driver states 
 	 */
-	inv_invpres_reset_states(&invpres_device, &invpres_serif);
+	//inv_invpres_reset_states(&invpres_device, &invpres_serif);
 
-	inv_invpres_setup(&invpres_device);
+	//inv_invpres_setup(&invpres_device);
 	/*
 	 * Initialize Dynamic protocol stuff
 	 */
@@ -209,16 +209,16 @@ int main (void)
 			__enable_irq();
 		}
 
-		if (irq_start_pressure_capture == 1) {
-			uint64_t timestamp = InvEMDFrontEnd_getTimestampUs();
+		//if (irq_start_pressure_capture == 1) {
+			//uint64_t timestamp = InvEMDFrontEnd_getTimestampUs();
 			
-			if (enabled_sensor_mask & (1 << idd_sensortype_conversion(INV_SENSOR_TYPE_CUSTOM_PRESSURE))) 
-			    inv_invpres_poll(&invpres_device, timestamp);
+			//if (enabled_sensor_mask & (1 << idd_sensortype_conversion(INV_SENSOR_TYPE_CUSTOM_PRESSURE))) 
+			    //inv_invpres_poll(&invpres_device, timestamp);
 			
-			__disable_irq();
-			irq_start_pressure_capture = 0;
-			__enable_irq();
-		}
+			//__disable_irq();
+			//irq_start_pressure_capture = 0;
+			//__enable_irq();
+		//}
 
 	}	
 	return 0;

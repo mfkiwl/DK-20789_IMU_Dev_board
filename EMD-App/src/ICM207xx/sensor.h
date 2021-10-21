@@ -80,7 +80,7 @@ extern DynProtocol_t protocol;
 extern DynProTransportUart_t transport;
 extern uint32_t period_us;
 extern inv_icm207xx_t icm_device;
-extern inv_invpres_t invpres_device;
+//extern inv_invpres_t invpres_device;
 extern uint32_t enabled_sensor_mask;
 
 

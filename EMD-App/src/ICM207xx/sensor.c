@@ -970,10 +970,10 @@ static int handle_command(enum DynProtocolEid eid, const DynProtocolEdata_t * ed
 		INV_MSG(INV_MSG_LEVEL_DEBUG, "DeviceEmdWrapper: received command start(%s)", inv_sensor_2str(sensor));
 		if (sensor > 0 && idd_sensortype_conversion(sensor) < SENSOR_MAX) {
 			/* Sensor data will be notified */
-			if (sensor == INV_SENSOR_TYPE_CUSTOM_PRESSURE) { 
-				set_pressure_timer(pressure_ms);
-				inv_invpres_enable_sensor(&invpres_device, 1);
-			}
+			//if (sensor == INV_SENSOR_TYPE_CUSTOM_PRESSURE) { 
+				//set_pressure_timer(pressure_ms);
+				//inv_invpres_enable_sensor(&invpres_device, 1);
+			//}
 			enabled_sensor_mask |= (1 << idd_sensortype_conversion(sensor));
 			return 0;
 		} else
@@ -994,12 +994,12 @@ static int handle_command(enum DynProtocolEid eid, const DynProtocolEdata_t * ed
 		case DYN_PROTOCOL_EID_SET_SENSOR_PERIOD:
 		{	
 			if (sensor == INV_SENSOR_TYPE_CUSTOM_PRESSURE) {
-				pressure_ms = edata->d.command.period / 1000;
-				if ((pressure_ms) > 1000)	// Min 1000 ms (or 1 Hz)
-					pressure_ms = 1000;
-				else if ((pressure_ms) < 25) // Max 25ms (or 40 Hz)
-					pressure_ms = 25;
-				set_pressure_timer(pressure_ms);
+				//pressure_ms = edata->d.command.period / 1000;
+				//if ((pressure_ms) > 1000)	// Min 1000 ms (or 1 Hz)
+					//pressure_ms = 1000;
+				//else if ((pressure_ms) < 25) // Max 25ms (or 40 Hz)
+					//pressure_ms = 25;
+				//set_pressure_timer(pressure_ms);
 			}
 			else {
 				INV_MSG(INV_MSG_LEVEL_DEBUG, "DeviceEmdWrapper: received command set_period(%d us)",edata->d.command.period);

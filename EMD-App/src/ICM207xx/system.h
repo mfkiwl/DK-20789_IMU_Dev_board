@@ -81,7 +81,7 @@ extern uint64_t InvEMDFrontEnd_getTimestampUs(void);
 
 extern RingByteBuffer uart_rx_rb;
 extern volatile int irq_from_device;
-extern volatile int irq_start_pressure_capture;
+//extern volatile int irq_start_pressure_capture;
 extern InvScheduler 	scheduler;
 extern volatile uint32_t ul_ticks;
 extern uint8_t I2C_Address;

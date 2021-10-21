@@ -57,8 +57,8 @@ static void i2c_master_initialize(void);
 
 /* Flag set from device irq handler */
 volatile int irq_from_device = 0;
-volatile int irq_start_pressure_capture = 0;
-static uint32_t pressure_timer_count = 0;
+//volatile int irq_start_pressure_capture = 0;
+//static uint32_t pressure_timer_count = 0;
 InvScheduler 	scheduler;
 
 #if SERIF_TYPE_I2C
@@ -457,21 +457,21 @@ void TC0_Handler(void)
 			Num50msTicks++;		
 }
 
-void set_pressure_timer(uint32_t new_timer_val)
-{
-	pressure_timer_count = new_timer_val;
-}
+//void set_pressure_timer(uint32_t new_timer_val)
+//{
+	//pressure_timer_count = new_timer_val;
+//}
 
 volatile uint32_t ul_ticks = 0;
 
 void SysTick_Handler(void)
 {
-	static uint32_t timer_count = 0;
+	//static uint32_t timer_count = 0;
 	
-	if (++timer_count >= pressure_timer_count) {
-		irq_start_pressure_capture = 1;
-		timer_count = 0;
-	}
+	//if (++timer_count >= pressure_timer_count) {
+		//irq_start_pressure_capture = 1;
+		//timer_count = 0;
+	//}
 	ul_ticks++;
 	InvScheduler_updateTime(&scheduler);
 }
