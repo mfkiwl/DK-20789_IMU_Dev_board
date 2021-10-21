@@ -35,7 +35,7 @@
 /* 
  * Select communication between Atmel and INV device
  */
-#define USE_SPI_NOT_I2C			0
+#define USE_SPI_NOT_I2C			1
 
 /* 
  * Select communication between Atmel and INV device by setting 0/1 to one of the following defines
